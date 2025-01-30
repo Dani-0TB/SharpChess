@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @{
+        if (string.IsNullOrWhiteSpace(ViewData["Title"].ToString()))
+        {
+            ViewData["Title"] = "Default";
+        }
+    }
+    <title>SharpChess - @ViewData["Title"]</title>
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <link href="~/css/global_styles.css" rel="stylesheet" />
+    <link href="~/css/header.css" rel="stylesheet" />
+    @await RenderSectionAsync("Styles", false)
+</head>
+<body>
+    <partial name="_Header"></partial>
+    @RenderBody()
+    @await RenderSectionAsync("Scripts", false)
+</body>
+</html>
