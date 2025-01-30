@@ -15,8 +15,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: center;
-    padding: 30px;
+    padding: 5px;
     flex: 1 1 auto;
   }
 
