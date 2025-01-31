@@ -6,6 +6,11 @@
         <div class="nav-item">
             <a asp-controller="Home" asp-action="Privacy" class="nav-link">Privacy</a>
         </div>
+        <environment include="Development">
+            <div class="nav-item">
+                <a asp-controller="Home" asp-action="Test" class="nav-link">Test</a>
+            </div>
+        </environment>
     </nav>
-    <hr class="nav-divisor"/>
+    <hr class="nav-divisor" />
 </header>

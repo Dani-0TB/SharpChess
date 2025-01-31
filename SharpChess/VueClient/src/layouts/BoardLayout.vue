@@ -2,7 +2,7 @@
   <h1 class="title">
     SharpChess
   </h1>
-  <ChessBoard />  
+  <ChessBoard />
 </template>
 
 <script setup lang="ts">
@@ -16,7 +16,6 @@
     flex-flow: column;
     align-items: center;
     padding: 5px;
-    flex: 1 1 auto;
   }
 
   .title {

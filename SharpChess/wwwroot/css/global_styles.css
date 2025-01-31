@@ -15,8 +15,6 @@ body {
     height: 100vh;
     background-color: #1D1616;
     color: white;
-    display: flex;
-    flex-flow: column nowrap;
 }
 
 .title {

@@ -1,0 +1,13 @@
+﻿<environment include="Development">
+    <script type="module" src="http://localhost:3000/src/main.ts"></script>
+</environment>
+
+<environment include="Production">
+    @section Styles {
+        <link rel="stylesheet" asp-href-include="/VueClient/assets/index-*.css">
+    }
+    @section Scripts {
+        <script asp-src-include="/VueClient/assets/index-*.js"></script>
+    }
+</environment>
+<div id="test-layout"></div>
