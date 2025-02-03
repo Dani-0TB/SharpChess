@@ -11,14 +11,11 @@
 
 <style>
   #board-layout {
-    height: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+    width: 100%;
     padding: 5px;
-  }
-
-  .title {
-    margin-bottom: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    overflow: hidden;
   }
 </style>

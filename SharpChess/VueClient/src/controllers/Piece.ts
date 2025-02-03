@@ -1,53 +1,62 @@
+export enum TypeCode {
+  empty = 0,
+  panw = 1,
+  knight = 2,
+  bishop = 4,
+  rook = 8,
+  queen = 16,
+  king = 32
+}
 
+export enum ColorCode{
+  white = 64,
+  black = 128
+}
 
-export abstract class Piece {
+export class Piece {
   // piece representation
-  public static empty: number = 0;
-  public static pawn: number = 1;
-  public static knight: number = 2;
-  public static bishop: number = 4;
-  public static rook: number = 8;
-  public static queen: number = 16;
-  public static king: number = 32;
-  // color representation
-  public static white: number = 64;
-  public static black: number = 128;
+  code: number;
 
-  public static decode_number(piece: number): string {
-    let piece_str: string = "";
-
-    // get the piece color
-    switch(piece & 0b11000000) {
-      case Piece.white:
-      piece_str = piece_str.concat("w");
-      break;
-      case Piece.black:
-      piece_str = piece_str.concat("b");
-      break;
-    }
-
-    // get the piece type
-    switch(piece & 0b00111111) {
-      case Piece.pawn:
-      piece_str = piece_str.concat("p");
-      break;
-      case Piece.knight:
-      piece_str = piece_str.concat("n");
-      break;
-      case Piece.bishop:
-      piece_str = piece_str.concat("b");
-      break;
-      case Piece.rook:
-      piece_str = piece_str.concat("r");
-      break;
-      case Piece.queen:
-      piece_str = piece_str.concat("q");
-      break;
-      case Piece.king:
-      piece_str = piece_str.concat("k");
-      break;
-    }
-
-    return piece_str;
+  constructor (type: TypeCode, color: ColorCode) {
+    this.code = type | color;
   }
+
+  toString(log: boolean = false) {
+    if (log) {
+      const s = this.get_color() === "w" ?
+                this.get_symbol().toUpperCase() :
+                this.get_symbol();
+      return s;
+    }
+    return `${this.get_color()}${this.get_symbol()}`;
+  }
+
+  get_symbol() {
+    switch (this.code & 0b00111111) {
+      case TypeCode.panw:
+        return "p";
+      case TypeCode.knight:
+        return "n";
+      case TypeCode.bishop:
+        return "b";
+      case TypeCode.rook:
+        return "r";
+      case TypeCode.queen:
+        return "q";
+      case TypeCode.king:
+        return "k";
+      default:
+        return "";
+    }
+  }
+
+  get_color() {
+    switch (this.code & 0b11000000) {
+      case ColorCode.white:
+        return "w";
+      case ColorCode.black:
+        return "b";
+    }
+  }
+
 }

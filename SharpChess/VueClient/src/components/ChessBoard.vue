@@ -1,45 +1,31 @@
 <!-- eslint-disable vue/require-v-for-key -->
 <template>
-
-<div class="buttons">
-  <button @click="board.append_piece(Piece.white | Piece.pawn)">
-    add white pawn
-  </button>
-  <button @click="board.append_piece(Piece.black | Piece.pawn)">
-    Add black pawn
-  </button>
+<!-- <div id="board" :style="{ backgroundImage: `url(http://localhost:3000/assets/board-blue.png)`}">
+>  -->
+<div id="board">
 </div>
-
-<div id="board" :style="{ backgroundImage: `url(http://localhost:3000/assets/board-blue.png)`}">
-  <template v-for="piece in board.squares">
-    <div class="piece" :class="Piece.decode_number(piece)">
-    </div>
-  </template>
-</div>
-
 </template>
 
 <script setup lang="ts">
 
-import { Board } from '@/controllers/Board';
-import { Piece } from '@/controllers/Piece';
+import { Chess } from "@/controllers/Chess";
+import { Piece } from "@/controllers/Piece";
 import { ref } from 'vue';
 
-const board = ref(new Board());
+const chess = ref(new Chess());
 </script>
 
 <style>
 
 #board {
+  width: 100%;
+  background-color: aliceblue;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
   max-width: 600px;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   border-radius: 5px;
-  display: flex;
-  flex-flow: row wrap;
 }
 
 .piece {

@@ -1,29 +1,108 @@
 import { expect, test } from 'vitest';
-import { Piece } from '../Piece';
+import { ColorCode, Piece, TypeCode } from '../Piece';
 import { describe } from 'vitest';
 
 
-describe('decode_piece tests', () => {
-  test('Decodes white pieces', () => {
-    expect(Piece.decode_number(Piece.white| Piece.pawn)).toBe("wp");
-    expect(Piece.decode_number(Piece.white| Piece.knight)).toBe("wn");
-    expect(Piece.decode_number(Piece.white| Piece.bishop)).toBe("wb");
-    expect(Piece.decode_number(Piece.white| Piece.rook)).toBe("wr");
-    expect(Piece.decode_number(Piece.white| Piece.queen)).toBe("wq");
-    expect(Piece.decode_number(Piece.white| Piece.king)).toBe("wk");
+describe('Piece.toString() decoding', () => {
+  test('Decodes white pawn', () => {
+    const piece = new Piece(TypeCode.panw, ColorCode.white);
+    expect(piece.toString()).toBe("wp")
+  });
+  test('Decodes white knight', () => {
+    const piece = new Piece(TypeCode.knight, ColorCode.white);
+    expect(piece.toString()).toBe("wn")
+  });
+  test('Decodes white bishop', () => {
+    const piece = new Piece(TypeCode.bishop, ColorCode.white);
+    expect(piece.toString()).toBe("wb")
+  });
+  test('Decodes white rook', () => {
+    const piece = new Piece(TypeCode.rook, ColorCode.white);
+    expect(piece.toString()).toBe("wr")
+  });
+  test('Decodes white queen', () => {
+    const piece = new Piece(TypeCode.queen, ColorCode.white);
+    expect(piece.toString()).toBe("wq")
+  });
+  test('Decodes white king', () => {
+    const piece = new Piece(TypeCode.king, ColorCode.white);
+    expect(piece.toString()).toBe("wk")
   });
 
-  test('Decodes black pieces', () => {
-    expect(Piece.decode_number(Piece.black | Piece.pawn)).toBe("bp");
-    expect(Piece.decode_number(Piece.black | Piece.knight)).toBe("bn");
-    expect(Piece.decode_number(Piece.black | Piece.bishop)).toBe("bb");
-    expect(Piece.decode_number(Piece.black | Piece.rook)).toBe("br");
-    expect(Piece.decode_number(Piece.black | Piece.queen)).toBe("bq");
-    expect(Piece.decode_number(Piece.black | Piece.king)).toBe("bk");
+  test('Decodes black pawn', () => {
+    const piece = new Piece(TypeCode.panw, ColorCode.black);
+    expect(piece.toString()).toBe("bp")
+  });
+  test('Decodes black knight', () => {
+    const piece = new Piece(TypeCode.knight, ColorCode.black);
+    expect(piece.toString()).toBe("bn")
+  });
+  test('Decodes black bishop', () => {
+    const piece = new Piece(TypeCode.bishop, ColorCode.black);
+    expect(piece.toString()).toBe("bb")
+  });
+  test('Decodes black rook', () => {
+    const piece = new Piece(TypeCode.rook, ColorCode.black);
+    expect(piece.toString()).toBe("br")
+  });
+  test('Decodes black queen', () => {
+    const piece = new Piece(TypeCode.queen, ColorCode.black);
+    expect(piece.toString()).toBe("bq")
+  });
+  test('Decodes black king', () => {
+    const piece = new Piece(TypeCode.king, ColorCode.black);
+    expect(piece.toString()).toBe("bk")
+  });
+});
+
+describe('Piece.toString(true) decoding', () => {
+  test('Decodes white pawn', () => {
+    const piece = new Piece(TypeCode.panw, ColorCode.white);
+    expect(piece.toString(true)).toBe("P")
+  });
+  test('Decodes white knight', () => {
+    const piece = new Piece(TypeCode.knight, ColorCode.white);
+    expect(piece.toString(true)).toBe("N")
+  });
+  test('Decodes white bishop', () => {
+    const piece = new Piece(TypeCode.bishop, ColorCode.white);
+    expect(piece.toString(true)).toBe("B")
+  });
+  test('Decodes white rook', () => {
+    const piece = new Piece(TypeCode.rook, ColorCode.white);
+    expect(piece.toString(true)).toBe("R")
+  });
+  test('Decodes white queen', () => {
+    const piece = new Piece(TypeCode.queen, ColorCode.white);
+    expect(piece.toString(true)).toBe("Q")
+  });
+  test('Decodes white king', () => {
+    const piece = new Piece(TypeCode.king, ColorCode.white);
+    expect(piece.toString(true)).toBe("K")
   });
 
-  test('Returns empty string for invalid codes', () => {
-    expect(Piece.decode_number(3)).toBe("");
-    expect(Piece.decode_number(12)).toBe("");
-  })
+test('Decodes black pawn', () => {
+    const piece = new Piece(TypeCode.panw, ColorCode.black);
+    expect(piece.toString(true)).toBe("p")
+  });
+  test('Decodes black knight', () => {
+    const piece = new Piece(TypeCode.knight, ColorCode.black);
+    expect(piece.toString(true)).toBe("n")
+  });
+  test('Decodes black bishop', () => {
+    const piece = new Piece(TypeCode.bishop, ColorCode.black);
+    expect(piece.toString(true)).toBe("b")
+  });
+  test('Decodes black rook', () => {
+    const piece = new Piece(TypeCode.rook, ColorCode.black);
+    expect(piece.toString(true)).toBe("r")
+  });
+  test('Decodes black queen', () => {
+    const piece = new Piece(TypeCode.queen, ColorCode.black);
+    expect(piece.toString(true)).toBe("q")
+  });
+  test('Decodes black king', () => {
+    const piece = new Piece(TypeCode.king, ColorCode.black);
+    expect(piece.toString(true)).toBe("k")
+  });
 });
