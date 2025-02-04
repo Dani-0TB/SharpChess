@@ -7,15 +7,22 @@
 */
 
 import { Board, Squares } from "./Board";
-import { Piece } from "./Piece";
+import { ColorCode, Piece } from "./Piece";
 
 export const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 export class Chess {
   private _board = new Board();
+  private to_move = WHITE;
+
 
   log_board() {
     console.log(this._board.toString());
+  }
+
+  star_pos() {
+    this._board.set_start_pos();
+    console.log("Start position set.")
   }
 }
 

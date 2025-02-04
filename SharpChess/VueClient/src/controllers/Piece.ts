@@ -9,6 +9,7 @@ export enum TypeCode {
 }
 
 export enum ColorCode{
+  empty = 0,
   white = 64,
   black = 128
 }
