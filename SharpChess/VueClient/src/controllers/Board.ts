@@ -91,4 +91,13 @@ export class Board {
     this.square[Squares.h8] = new Piece(TypeCode.rook, ColorCode.black);
 
   }
+
+  move_piece(from: number, to: number): boolean {
+    if (this.square[from]) {
+      this.square[to] = this.square[from];
+      delete this.square[from];
+      return true;
+    }
+    return false;
+  }
 }
