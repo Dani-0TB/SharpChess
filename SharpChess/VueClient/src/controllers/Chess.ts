@@ -11,6 +11,9 @@ import { ColorCode, Piece } from "./Piece";
 
 export const START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
+const WHITE = ColorCode.white;
+const BLACK = ColorCode.black;
+
 export class Chess {
   private _board = new Board();
   private to_move = WHITE;

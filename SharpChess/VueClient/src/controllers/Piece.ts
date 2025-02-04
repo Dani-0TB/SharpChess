@@ -1,6 +1,6 @@
 export enum TypeCode {
   empty = 0,
-  panw = 1,
+  pawn = 1,
   knight = 2,
   bishop = 4,
   rook = 8,
@@ -34,7 +34,7 @@ export class Piece {
 
   get_symbol() {
     switch (this.code & 0b00111111) {
-      case TypeCode.panw:
+      case TypeCode.pawn:
         return "p";
       case TypeCode.knight:
         return "n";

@@ -41,16 +41,18 @@ export class Board {
     let file = "";
 
     for (let i = Squares.a1; i <= Squares.h8; i++) {
-      // print rank and clear file
+      // print rank
       if (i % 8 === 0) {
         file = `${i / 8 + 1}|` + file;
       }
+      // print piece
       const piece = this.square[i];
       if (piece) {
         file += ` ${piece.toString(true)} `;
       } else {
         file += " - ";
       }
+      // if file is over append to string and clear file
       if (i % 8 === 7) {
         file += "|\n";
         s = file + s;
@@ -59,15 +61,16 @@ export class Board {
     }
 
     s = " |------------------------|\n" + s;
+    s = "        CHESS BOARD        \n" + s;
     return s;
   }
 
   set_start_pos() {
     for (let i = Squares.a2; i <= Squares.h2; i++) {
-      this.square[i] = new Piece(TypeCode.panw, ColorCode.white);
+      this.square[i] = new Piece(TypeCode.pawn, ColorCode.white);
     }
     for (let i = Squares.a7; i <= Squares.h7; i++) {
-      this.square[i] = new Piece(TypeCode.panw, ColorCode.black);
+      this.square[i] = new Piece(TypeCode.pawn, ColorCode.black);
     }
     this.square[Squares.a1] = new Piece(TypeCode.rook, ColorCode.white);
     this.square[Squares.b1] = new Piece(TypeCode.knight, ColorCode.white);
@@ -86,9 +89,6 @@ export class Board {
     this.square[Squares.f8] = new Piece(TypeCode.bishop, ColorCode.black);
     this.square[Squares.g8] = new Piece(TypeCode.knight, ColorCode.black);
     this.square[Squares.h8] = new Piece(TypeCode.rook, ColorCode.black);
-
-    this.square[Squares.e2] = undefined;
-    this.square[Squares.e4] = new Piece(TypeCode.panw, ColorCode.white);
 
   }
 }
